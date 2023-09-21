@@ -18,14 +18,14 @@ public class ApplePicker : MonoBehaviour
 
     void Start()
     {
-        Invoke("Drop Apple", 2f);
+        Invoke("DropApple", 2f);
     }
 
     void DropApple()
     {
         GameObject apple = Instantiate<GameObject>(applePrefab);
         apple.transform.position = transform.position;
-        Invoke("Drop Apple", secondsBetweenAppleDrops);
+        Invoke("DropApple", secondsBetweenAppleDrops);
 
     }
 
