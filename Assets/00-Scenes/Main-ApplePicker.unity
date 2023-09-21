@@ -326,8 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996ad9de48f1947c3ae1cd001d85025a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applePrefab: {fileID: 0}
-  speed: 1
+  applePrefab: {fileID: 6058252246568137056, guid: 6676658a562eb491881c6973626d05ec, type: 3}
+  speed: 10
   leftAndRightEdge: 20
   chanceToChangeDirections: 0.1
   secondsBetweenAppleDrops: 1
@@ -345,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587045415322112632, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4587045415322112632, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -378,6 +378,14 @@ PrefabInstance:
     - target: {fileID: 4587045415322112632, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097131152515665225, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097131152515665225, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7859179783298983550, guid: 1e94c14667ef64f1da7b0712bdda07cd, type: 3}
       propertyPath: m_Name
