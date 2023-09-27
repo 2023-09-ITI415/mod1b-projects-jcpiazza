@@ -29,6 +29,11 @@ public class ApplePicker : MonoBehaviour
 
     }
 
+    internal void AppleDestroyed()
+    {
+        throw new System.NotImplementedException();
+    }
+
     void Update()
     {
         Vector3 pos = transform.position;
