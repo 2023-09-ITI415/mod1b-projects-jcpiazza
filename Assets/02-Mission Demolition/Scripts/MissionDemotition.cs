@@ -73,7 +73,7 @@ public class MissionDemotition : MonoBehaviour
         {
             mode = GameMode.levelEnd;
             SwitchView("Show Both");
-            Invoke("Next Level", 2f);
+            Invoke("NextLevel", 2f);
         }
     }
         void NextLevel()
@@ -85,9 +85,9 @@ public class MissionDemotition : MonoBehaviour
             }
             StartLevel();
         }
-         public void SwitchView(string eView = " ")
+         public void SwitchView(string eView = "")
         {
-            if (eView == " ")
+            if (eView == "")
             {
                 eView = uitButton.text;
             }
@@ -99,7 +99,11 @@ public class MissionDemotition : MonoBehaviour
                     uitButton.text = "Show Castle";
                     break;
                 case "Show Castle":
-                    FollowCam.POI = GameObject.Find("ViewBoth");
+                    FollowCam.POI = S.castle;
+                    uitButton.text = "Show Both";
+                break;
+                case "Show Both":
+                FollowCam.POI = GameObject.Find("ViewBoth");
                     uitButton.text = "Show Slingshot";
                     break;
             }
