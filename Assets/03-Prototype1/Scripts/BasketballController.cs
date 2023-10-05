@@ -9,8 +9,11 @@ public class BasketballController : MonoBehaviour
     public Transform Arms;
     public Transform PosOverHead;
     public Transform PosDribble;
+    public Transform Target;
 
-    private bool InBallInHands = true;
+    private bool IsBallInHands = true;
+    private bool IsBallFlying = false;
+    private float T = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +28,42 @@ public class BasketballController : MonoBehaviour
         transform.position += direction * MoveSpeed * Time.deltaTime;
         transform.LookAt(transform.position + direction);
 
-        if (InBallInHands)
+        if (IsBallInHands)
         {
             if (Input.GetKey(KeyCode.Space))
             {
                 Ball.position = PosOverHead.position;
+                Arms.localEulerAngles = Vector3.right * 180;
+                transform.LookAt(Target.parent.position);
             }
 
             else
             {
-                Ball.position = PosDribble.position;
+                Ball.position = PosDribble.position + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time * 5));
+                Arms.localEulerAngles = Vector3.right * 0;
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            IsBallInHands = false;
+            IsBallFlying = true;
+            T = 0;
+        }
+
+        if (IsBallFlying)
+        {
+            T += Time.deltaTime;
+            float duration = 0.5f;
+            float t01 = T / duration;
+
+            Vector3 A = PosOverHead.position;
+            Vector3 B = Target.position;
+            Vector3 pos = Vector3.Lerp(A, B, t01);
+
+            Ball.position = pos;
+        }
+
     }
+
 }
