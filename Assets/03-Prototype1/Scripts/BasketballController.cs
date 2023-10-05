@@ -16,9 +16,13 @@ public class BasketballController : MonoBehaviour
     private float T = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (!IsBallFlying && !IsBallInHands)
+        {
+            IsBallInHands = true;
+            Ball.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 
     // Update is called once per frame
@@ -61,7 +65,15 @@ public class BasketballController : MonoBehaviour
             Vector3 B = Target.position;
             Vector3 pos = Vector3.Lerp(A, B, t01);
 
-            Ball.position = pos;
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
+
+            Ball.position = pos + arc;
+
+            if (t01 >= 1)
+            {
+                IsBallFlying = false;
+                Ball.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
 
     }
