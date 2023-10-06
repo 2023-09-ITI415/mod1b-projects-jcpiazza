@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasketballController : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class BasketballController : MonoBehaviour
     private bool IsBallFlying = false;
     private float T = 0;
 
-    // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (!IsBallFlying && !IsBallInHands)
@@ -24,8 +24,6 @@ public class BasketballController : MonoBehaviour
             Ball.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
