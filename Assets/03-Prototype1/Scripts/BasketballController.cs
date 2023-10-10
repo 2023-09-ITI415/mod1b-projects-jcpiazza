@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 public class BasketballController : MonoBehaviour
 {
@@ -22,14 +22,6 @@ public class BasketballController : MonoBehaviour
         {
             IsBallInHands = true;
             Ball.GetComponent<Rigidbody>().isKinematic = true;
-        }
-
-        if (other.gameObject.CompareTag("Target"))
-        {
-            other.gameObject.SetActive(true);
-            count = count + 1;
-
-            SetCountText();
         }
     }
     void Update()
@@ -80,31 +72,6 @@ public class BasketballController : MonoBehaviour
                 IsBallFlying = false;
                 Ball.GetComponent<Rigidbody>().isKinematic = false;
             }
-        }
-    }
-
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
-
-    private Rigidbody rb;
-    private int count;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        count = 0;
-
-        SetCountText();
-
-        winTextObject.SetActive(false);
-    }
-
-    void SetCountText()
-    {
-        countText.text = "Score: " + count.ToString();
-        if (count >= 20)
-        {
-            winTextObject.SetActive(true);
         }
     }
 
